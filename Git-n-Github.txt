@@ -1,0 +1,132 @@
+
+ls= files and folders in the directory
+start . = to open the search folder parameter
+pwd= location /path
+cd filename= goes to that particular directory
+cd ..= goes backwards
+handling file and folder
+mkdir om.txt= touch om.txt= makes a directory in the current folder
+rm= deletes the file
+rm -rf = deletes the folder
+clear=clear
+git --version
+ls -a = shows some hidden files such as git in a particular directory
+
+git status(
+    reports u anything new in the repository 
+)
+git add file1 file2 ...
+
+git add transfers the changes to a staging area from which the git commit then transfers the files from the staging area to the repo.
+
+git commit -m "message"= helps commit with a message given to that commit 
+
+git log= log of a commit in a repo( history of all commits)
+git log --oneline (gives the log in one line)
+
+git add . = stages all the events that are changed in a directory
+
+ammend the previous commit
+git commit -m"message"
+git add New_filename
+git --amend
+
+on git we have the supreme branch named as master branch whereas the git hub has the branch named as main branch
+
+head refers to the branch pointer 
+git branch-  shows all the branches in the repo and the active branch has a asterick
+git branch branchname- creates new branch but does not switch to it. (Branch name should not have space and should be as consise as possible)
+
+git switch branch name (Switches branch)
+git commit -a -m (one line cmd to stage and commit)
+git checkout branchname(same as git switch)
+git branch -c branchname - creates the branch and also switches to it simultaneously (can aslo use git checkout -b branchname
+git branch -d filename(deletes after seeing the merge status)
+git branch -D filename(Deletes irrespective of the merge status)
+git branch -m(rename the branch)
+in order to rename the branch u have to be actively present in that branch(active status will be displayed as an asterick)
+
+We always merge branches not commits
+Steps to merge the Branches
+first go to that branch where you have to merge the branches( generally the master branch) then use 
+git merge branchname(That branch which you need to merge)
+git branch -v (Extra information) 
+for resolving git conflicts, first open the conflicted file where the merge is creating issues, remove the header templates and make necessary changes which u want and the directly commit the file.
+
+git diff (displays changes between working directory and staging area)
+use Q to exit this event  
+
+git diff 
+chunk @@ _________ @@
+--- WILL BE ASSIGNED TO ONE file
+and +++ to other
+@@ -3,4 +3,5 @@
+- is file A and + is file b
+from file A from 3rd line 4 lines are modified and in file B from line 3, 5 lines are modified
+old file is -
+and new file is +
+git diff HEAD (lists all changes in the working tree since last commit)
+(Basically shows changes between last commit and the working directory)
+git diff --cached // git diff --staged (diff between staging area and last commit)
+git diff HEAD (filename) // git diff --staged (filename)
+git diff branch1Name..branch2Name (Comparing two branches) //
+git diff branch1Name branch2Name
+git diff commithash1 commithash2 (Compare two commits)
+git stash(save changes on the staging area(stashes them) and undos the changes in the working directory) // git stash save
+git stash pop (removes the most recent thing from the stash and redos the changes in the working directory)
+git stash appyl(applies the changes to current branch without erasing the stashed files from the staging area)
+you can stash multiple times use (git stash list (to see all the stashes))
+to apply a particular stash use 
+git stash apply @stash{2(any number of stash which you want to refers)}
+git stash drop (deletes the recent stash)
+if multiple stash exists use stash indexing to delete a particular stash
+git stash drop @stash{number}
+git stash clear (deletes all the stashes)
+
+
+##Git checkout has a widespread application (switching branches, travelling through commits (timeline) discarding changes)
+//Travelling back in time
+(The detached head method)
+git checkout hash(first 7 digits of the hash code of commit )(goes to the previous commits)
+to again come back to the master branch and solve the detached head problem, first create a ne branch on that commit and the easily switch to the master branch.
+to travel between different comits using another way(relative to the head)
+git checkout HEAD~number
+ git switch - (switches to the previous branch)
+
+ discarding changes done after the last commit using checkout
+ git checkout -- (filename)
+ git checkout HEAD (filename)
+ same function is done by
+ git restore filename(restores to the previous commit)
+ to restore to a particularcommit in the past
+ git restore --source HEAD~2
+
+
+ git reset <Commit hash>(deletes the commit but doesnot undos the changes in the working directory)
+  git reset --hard <Commit hash> (changes commit as well as working directory)
+  git revert <Commit hash>(a new commit is created where the previous commit's all changes are done without losing the current commit(helpful in collabarative working))
+ 
+
+
+ ###GIT HUB ###
+ git clone URL(generally a git hub repo or maybe any other repo hoisting entity)
+
+ git remote or git remot -v (destination URLs)
+ git remote add <name> <URL> the name is given to that url to avoid tedious process of copying and pasting the url each time
+ (origin is the conventional name for github)
+ git remote rename <old> <new>
+ git remote remove <name>
+ git push <remote> <branch>
+git push -u <remote> <branch> (sets that particular branch as the upstream branch )
+git push -u <remote> loacalbranch:remote branch(this will push the repo onto that remote branch and also will set up it as a upstream)
+upstream basically means whenever in future you will write
+git push
+it will automatically push the repo to that upstream branch
+
+ git push <remote> localbranchName:githubBranchName
+ pushes our branch to another branch name on GitHub
+ whenever we clone a repo from github the branch and commits are all copied to our local system along with a bookmark kind of thing (reference) remote/branch
+
+ the remote is also saved 
+ use cmd git branch -r
+ 
