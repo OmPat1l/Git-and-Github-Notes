@@ -1,4 +1,4 @@
-
+git branch -M main  (Renmaes the branch)
 ls= files and folders in the directory
 start . = to open the search folder parameter
 pwd= location /path
@@ -129,4 +129,11 @@ it will automatically push the repo to that upstream branch
 
  the remote is also saved 
  use cmd git branch -r
+
+
+//new commands
+git  rm --cached  filename (unstages staged events)
+git reset . (unstages all files 	)
+
+branches are not created until any commits are commited
  
