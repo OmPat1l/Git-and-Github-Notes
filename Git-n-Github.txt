@@ -136,4 +136,43 @@ git  rm --cached  filename (unstages staged events)
 git reset . (unstages all files 	)
 
 branches are not created until any commits are commited
- 
+
+git fetch an git pull
+(in fetch and pull it realy matters where the command is executed(in which branch))
+
+Fetching:-
+It allows us to download changes from a remote repo, but does not integrate it to our working files
+cmd
+git fetch remoteName or
+git fetch remote branch
+
+a new branch like origin/master will be created but the master branch on local would be untouched
+
+Pulling:-
+It retrieves changes from the cloud and then updates it in the local head branch
+
+git pull origin main
+git pull remoteName branchName
+
+In case of fetch/pull there might be chances of merge conflicts 
+To avoid this, it is adviced to pull any changes from github first and then merge conflicts(if any) and then subsequently push the code
+
+A shorter syntax for Pulling
+git pull 
+in this case the default settings will work ie remote will be origin and subsequent branches will be as follows
+main ---> orign/main
+master--> origin/master
+main/master are the branches where the pull cmd is executed
+
+###Summarizing###
+git fetch
+Gets changes from remote branches 
+updates the remote branches with the new changes
+doea not merge changes onto current head branch
+safe to do anytime
+
+git pull
+Gets changes from remote branches
+update sthe current branch with new changes, merging them
+can result in conflicts
+not recommended if there are uncommited changes in the directory
